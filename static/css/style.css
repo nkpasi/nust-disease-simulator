@@ -1,0 +1,194 @@
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #0f1117;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(135deg, #1a1d2e 0%, #252840 100%);
+  border-bottom: 2px solid #3a3f6e;
+  padding: 1.2rem 2rem;
+}
+header h1 { font-size: 1.5rem; color: #fff; }
+.subtitle  { color: #8888aa; font-size: 0.85rem; margin-top: 0.3rem; }
+
+main {
+  display: flex;
+  flex: 1;
+  gap: 0;
+}
+
+/* ── Controls ── */
+.controls {
+  width: 310px;
+  min-width: 260px;
+  background: #13151f;
+  border-right: 1px solid #2a2d42;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  overflow-y: auto;
+}
+
+.section h2 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6670aa;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid #2a2d42;
+  padding-bottom: 0.4rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.82rem;
+  color: #aaa;
+  gap: 0.3rem;
+  margin-bottom: 0.7rem;
+}
+
+input[type="number"] {
+  background: #1e2030;
+  border: 1px solid #3a3f6e;
+  color: #fff;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+input[type="range"] {
+  accent-color: #5b6af0;
+  width: 100%;
+}
+
+.val { color: #5b6af0; font-weight: 700; font-size: 0.88rem; float: right; }
+
+.r0box {
+  background: #1e2030;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.r0box strong { color: #fff; font-size: 1.1rem; }
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.badge.low    { background:#1a3a2a; color:#4caf8a; }
+.badge.medium { background:#3a2e10; color:#f0b429; }
+.badge.high   { background:#3a1a1a; color:#f07070; }
+
+.modebtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.mbtn {
+  background: #1e2030;
+  border: 1px solid #3a3f6e;
+  color: #aaa;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+.mbtn:hover  { background: #2a2d50; color: #fff; }
+.mbtn.active { background: #5b6af0; border-color: #5b6af0; color: #fff; }
+
+.runbtn {
+  background: linear-gradient(135deg, #5b6af0, #7b4ff0);
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.runbtn:hover    { opacity: 0.9; }
+.runbtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.errbox {
+  background: #3a1a1a;
+  border: 1px solid #f07070;
+  color: #f09090;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+
+/* ── Results ── */
+.results {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  overflow-y: auto;
+  background: #0f1117;
+  scroll-behavior: smooth;
+}
+
+.statsbar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.stat {
+  background: #1e2030;
+  border: 1px solid #2a2d42;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  min-width: 130px;
+  text-align: center;
+}
+.slabel { font-size: 0.72rem; color: #6670aa; text-transform: uppercase; letter-spacing: 0.08em; }
+.sval   { font-size: 1.4rem; font-weight: 700; color: #fff; margin-top: 0.2rem; }
+
+.chart {
+  background: #13151f;
+  border: 1px solid #2a2d42;
+  border-radius: 12px;
+  width: 100%;
+  min-height: 500px;
+  display: block;
+  align-items: center;
+}
+.placeholder { text-align: center; color: #555; }
+.placeholder p { margin: 0.3rem 0; }
+
+.explainbox {
+  background: #1a1d2e;
+  border: 1px solid #3a3f6e;
+  border-radius: 10px;
+  padding: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #bbbbd0;
+  margin-bottom: 2rem;
+}
+.explainbox h3 { color: #8888dd; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.explainbox strong { color: #fff; }

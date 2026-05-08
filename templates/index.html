@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NUST Disease Spread Simulator</title>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+<header>
+  <h1>&#129440; NUST Campus Disease Spread Simulator</h1>
+  <p class="subtitle">SCS 2209 Computational Modelling &mdash; SIR / SEIR / Stochastic / Monte Carlo</p>
+</header>
+
+<main>
+  <aside class="controls">
+
+    <div class="section">
+      <h2>Population</h2>
+      <label>Total Population (N)
+        <input type="number" id="population" value="15000" min="100" />
+      </label>
+      <label>Initial Infected (I&#8320;)
+        <input type="number" id="initial_infected" value="10" min="1" />
+      </label>
+      <label>Days to simulate
+        <input type="number" id="days" value="160" min="10" max="730" />
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>Parameters</h2>
+      <label>&beta; transmission rate &nbsp;<span class="val" id="bv">0.30</span>
+        <input type="range" id="beta" min="0.05" max="1.00" step="0.01" value="0.30"
+               oninput="document.getElementById('bv').textContent=parseFloat(this.value).toFixed(2);updateR0()"/>
+      </label>
+      <label>&gamma; recovery rate &nbsp;<span class="val" id="gv">0.10</span>
+        <input type="range" id="gamma" min="0.01" max="0.50" step="0.01" value="0.10"
+               oninput="document.getElementById('gv').textContent=parseFloat(this.value).toFixed(2);updateR0()"/>
+      </label>
+      <label>&sigma; incubation rate (SEIR only) &nbsp;<span class="val" id="sv">0.33</span>
+        <input type="range" id="sigma" min="0.05" max="1.00" step="0.01" value="0.33"
+               oninput="document.getElementById('sv').textContent=parseFloat(this.value).toFixed(2)"/>
+      </label>
+      <div class="r0box">
+        R&#8320; = &beta;/&gamma; = <strong id="r0live">3.00</strong>
+        <span id="r0badge" class="badge high">High spread</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Model</h2>
+      <div class="modebtns">
+        <button class="mbtn active" onclick="setMode('SIR',this)">SIR</button>
+        <button class="mbtn" onclick="setMode('SEIR',this)">SEIR</button>
+        <button class="mbtn" onclick="setMode('stochastic',this)">Stochastic</button>
+        <button class="mbtn" onclick="setMode('montecarlo',this)">Monte Carlo</button>
+        <button class="mbtn" onclick="setMode('r0sweep',this)">R&#8320; Sweep</button>
+      </div>
+    </div>
+
+    <button class="runbtn" onclick="runSim()">&#9654; Run Simulation</button>
+    <div id="errbox" style="display:none" class="errbox"></div>
+  </aside>
+
+  <section class="results">
+    <div id="statsbar" class="statsbar" style="display:none">
+      <div class="stat"><div class="slabel">R&#8320;</div><div class="sval" id="st_r0">-</div></div>
+      <div class="stat"><div class="slabel">Peak Infected</div><div class="sval" id="st_peak">-</div></div>
+      <div class="stat"><div class="slabel">Peak Day</div><div class="sval" id="st_day">-</div></div>
+      <div class="stat"><div class="slabel">Total Infected</div><div class="sval" id="st_total">-</div></div>
+    </div>
+    <div id="chart" class="chart">
+      <div class="placeholder">
+        <p style="font-size:3rem">&#128202;</p>
+        <p>Choose a model and click <strong>Run Simulation</strong></p>
+      </div>
+    </div>
+    <div id="explainbox" class="explainbox" style="display:none"></div>
+  </section>
+</main>
+<script src="/static/js/main.js"></script>
+</body>
+</html>

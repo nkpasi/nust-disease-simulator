@@ -48,12 +48,12 @@ nust_disease_sim/
 
 ## Team Work Breakdown
 
-| Person | Role | Files |
-|--------|------|-------|
-| Nathanael | Model Developer — SIR/SEIR deterministic ODE | `models/sir_deterministic.py` |
-| Person 2 | Monte Carlo sensitivity analysis | `models/monte_carlo.py` |
-| Person 3 | Flask backend + routing + integration | `app.py` |
-| Person 4 | Frontend dashboard — HTML/CSS/Plotly | `templates/index.html`, `static/` |
+| Person | Student Number | Role | Files |
+|--------|------|------|-------|
+| Nathanael Pasipamire | N0241970M | Model Developer — SIR/SEIR deterministic ODE | `models/sir_deterministic.py` |
+| Ryan Musuka | N02425277T | Monte Carlo sensitivity analysis | `models/monte_carlo.py` |
+| Adam Dzitiro | N02422752S | Flask backend + routing + integration | `app.py` |
+| Blessings Mazenge | N02423594T | Frontend dashboard — HTML/CSS/Plotly | `templates/index.html`, `static/` |
 
 ---
 
